@@ -1,0 +1,37 @@
+# Xilinx Vivado auto-generated files
+.Xil/
+*.jou
+*.log
+*.zip
+*.tar.gz
+*.str
+*_webtalk.tcl
+*_webtalk.xml
+webtalk*.log
+webtalk*.jou
+xelab.*
+xsim.*
+xvhdl.*
+xst
+vivado*.backup.jou
+vivado*.backup.log
+vivado*.log
+vivado*.jou
+vivado_*.backup.jou
+vivado_*.backup.log
+vivado_*.log
+vivado_*.jou
+*_vivado.log
+*_vivado.jou
+
+# Project files and folders to ignore
+*.xpr.pb
+*.xpr.user
+*.xpr.lock
+*.cache
+*.runs
+*.gen
+*.ip_user_files
+*.hwh
+*.bd
+*.bda
