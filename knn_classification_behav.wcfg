@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="knn_classification_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="knn_classification" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.925000 us"></ZoomStartTime>
+      <ZoomEndTime time="15.755001 us"></ZoomEndTime>
+      <Cursor1Time time="16.800000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="166"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="63" />
+   <wvobject fp_name="/knn_classification/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/rst_n" type="logic">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/test_vector" type="array">
+      <obj_property name="ElementShortName">test_vector[63:0]</obj_property>
+      <obj_property name="ObjectShortName">test_vector[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c1" type="array">
+      <obj_property name="ElementShortName">c1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c2" type="array">
+      <obj_property name="ElementShortName">c2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c3" type="array">
+      <obj_property name="ElementShortName">c3[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c3[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c4" type="array">
+      <obj_property name="ElementShortName">c4[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c4[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c5" type="array">
+      <obj_property name="ElementShortName">c5[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c5[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/final_class" type="array">
+      <obj_property name="ElementShortName">final_class[3:0]</obj_property>
+      <obj_property name="ObjectShortName">final_class[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/sorter_done" type="logic">
+      <obj_property name="ElementShortName">sorter_done</obj_property>
+      <obj_property name="ObjectShortName">sorter_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/voting_done" type="logic">
+      <obj_property name="ElementShortName">voting_done</obj_property>
+      <obj_property name="ObjectShortName">voting_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/dist_buffer" type="array">
+      <obj_property name="ElementShortName">dist_buffer[33:0]</obj_property>
+      <obj_property name="ObjectShortName">dist_buffer[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/class_buffer" type="array">
+      <obj_property name="ElementShortName">class_buffer[3:0]</obj_property>
+      <obj_property name="ObjectShortName">class_buffer[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/valid_buffer" type="logic">
+      <obj_property name="ElementShortName">valid_buffer</obj_property>
+      <obj_property name="ObjectShortName">valid_buffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/sorter_reset" type="logic">
+      <obj_property name="ElementShortName">sorter_reset</obj_property>
+      <obj_property name="ObjectShortName">sorter_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/data_counter" type="array">
+      <obj_property name="ElementShortName">data_counter[4:0]</obj_property>
+      <obj_property name="ObjectShortName">data_counter[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/processing_complete" type="logic">
+      <obj_property name="ElementShortName">processing_complete</obj_property>
+      <obj_property name="ObjectShortName">processing_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/rom" type="array">
+      <obj_property name="ElementShortName">rom[0:149][65:0]</obj_property>
+      <obj_property name="ObjectShortName">rom[0:149][65:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/rom_addr" type="array">
+      <obj_property name="ElementShortName">rom_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/point_count" type="array">
+      <obj_property name="ElementShortName">point_count[4:0]</obj_property>
+      <obj_property name="ObjectShortName">point_count[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/rom_data" type="array">
+      <obj_property name="ElementShortName">rom_data[65:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_data[65:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/pw" type="array">
+      <obj_property name="ElementShortName">pw[15:0]</obj_property>
+      <obj_property name="ObjectShortName">pw[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/pl" type="array">
+      <obj_property name="ElementShortName">pl[15:0]</obj_property>
+      <obj_property name="ObjectShortName">pl[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/sw" type="array">
+      <obj_property name="ElementShortName">sw[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sw[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/sl" type="array">
+      <obj_property name="ElementShortName">sl[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sl[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/rom_class" type="array">
+      <obj_property name="ElementShortName">rom_class[1:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_class[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/test_pw" type="array">
+      <obj_property name="ElementShortName">test_pw[15:0]</obj_property>
+      <obj_property name="ObjectShortName">test_pw[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/test_pl" type="array">
+      <obj_property name="ElementShortName">test_pl[15:0]</obj_property>
+      <obj_property name="ObjectShortName">test_pl[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/test_sw" type="array">
+      <obj_property name="ElementShortName">test_sw[15:0]</obj_property>
+      <obj_property name="ObjectShortName">test_sw[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/test_sl" type="array">
+      <obj_property name="ElementShortName">test_sl[15:0]</obj_property>
+      <obj_property name="ObjectShortName">test_sl[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/valid_in" type="logic">
+      <obj_property name="ElementShortName">valid_in</obj_property>
+      <obj_property name="ObjectShortName">valid_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/diff_sl" type="array">
+      <obj_property name="ElementShortName">diff_sl[16:0]</obj_property>
+      <obj_property name="ObjectShortName">diff_sl[16:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/diff_sw" type="array">
+      <obj_property name="ElementShortName">diff_sw[16:0]</obj_property>
+      <obj_property name="ObjectShortName">diff_sw[16:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/diff_pl" type="array">
+      <obj_property name="ElementShortName">diff_pl[16:0]</obj_property>
+      <obj_property name="ObjectShortName">diff_pl[16:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/diff_pw" type="array">
+      <obj_property name="ElementShortName">diff_pw[16:0]</obj_property>
+      <obj_property name="ObjectShortName">diff_pw[16:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/sq_sl" type="array">
+      <obj_property name="ElementShortName">sq_sl[33:0]</obj_property>
+      <obj_property name="ObjectShortName">sq_sl[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/sq_sw" type="array">
+      <obj_property name="ElementShortName">sq_sw[33:0]</obj_property>
+      <obj_property name="ObjectShortName">sq_sw[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/sq_pl" type="array">
+      <obj_property name="ElementShortName">sq_pl[33:0]</obj_property>
+      <obj_property name="ObjectShortName">sq_pl[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/sq_pw" type="array">
+      <obj_property name="ElementShortName">sq_pw[33:0]</obj_property>
+      <obj_property name="ObjectShortName">sq_pw[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/final_sum" type="array">
+      <obj_property name="ElementShortName">final_sum[33:0]</obj_property>
+      <obj_property name="ObjectShortName">final_sum[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/valid_stage1" type="logic">
+      <obj_property name="ElementShortName">valid_stage1</obj_property>
+      <obj_property name="ObjectShortName">valid_stage1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/valid_stage2" type="logic">
+      <obj_property name="ElementShortName">valid_stage2</obj_property>
+      <obj_property name="ObjectShortName">valid_stage2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/valid_stage3" type="logic">
+      <obj_property name="ElementShortName">valid_stage3</obj_property>
+      <obj_property name="ObjectShortName">valid_stage3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/class_stage1" type="array">
+      <obj_property name="ElementShortName">class_stage1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">class_stage1[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/class_stage2" type="array">
+      <obj_property name="ElementShortName">class_stage2[1:0]</obj_property>
+      <obj_property name="ObjectShortName">class_stage2[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/class_stage3" type="array">
+      <obj_property name="ElementShortName">class_stage3[1:0]</obj_property>
+      <obj_property name="ObjectShortName">class_stage3[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/r1_reg" type="array">
+      <obj_property name="ElementShortName">r1_reg[33:0]</obj_property>
+      <obj_property name="ObjectShortName">r1_reg[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/r2_reg" type="array">
+      <obj_property name="ElementShortName">r2_reg[33:0]</obj_property>
+      <obj_property name="ObjectShortName">r2_reg[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/r3_reg" type="array">
+      <obj_property name="ElementShortName">r3_reg[33:0]</obj_property>
+      <obj_property name="ObjectShortName">r3_reg[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/r4_reg" type="array">
+      <obj_property name="ElementShortName">r4_reg[33:0]</obj_property>
+      <obj_property name="ObjectShortName">r4_reg[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/r5_reg" type="array">
+      <obj_property name="ElementShortName">r5_reg[33:0]</obj_property>
+      <obj_property name="ObjectShortName">r5_reg[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c1_reg" type="array">
+      <obj_property name="ElementShortName">c1_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c1_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c2_reg" type="array">
+      <obj_property name="ElementShortName">c2_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c2_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c3_reg" type="array">
+      <obj_property name="ElementShortName">c3_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c3_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c4_reg" type="array">
+      <obj_property name="ElementShortName">c4_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c4_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/c5_reg" type="array">
+      <obj_property name="ElementShortName">c5_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">c5_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/sorter_count" type="array">
+      <obj_property name="ElementShortName">sorter_count[8:0]</obj_property>
+      <obj_property name="ObjectShortName">sorter_count[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/voted_class" type="array">
+      <obj_property name="ElementShortName">voted_class[3:0]</obj_property>
+      <obj_property name="ObjectShortName">voted_class[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/vote_stage" type="array">
+      <obj_property name="ElementShortName">vote_stage[2:0]</obj_property>
+      <obj_property name="ObjectShortName">vote_stage[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/cnt0" type="array">
+      <obj_property name="ElementShortName">cnt0[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt0[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/cnt1" type="array">
+      <obj_property name="ElementShortName">cnt1[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt1[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/cnt2" type="array">
+      <obj_property name="ElementShortName">cnt2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt2[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/knn_classification/cnt3" type="array">
+      <obj_property name="ElementShortName">cnt3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt3[2:0]</obj_property>
+   </wvobject>
+</wave_config>
