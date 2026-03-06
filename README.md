@@ -1,10 +1,10 @@
-🚀 FPGA k-Nearest Neighbors (k-NN) Accelerator
+###  FPGA k-Nearest Neighbors (k-NN) Accelerator
 
 A high-performance RTL implementation of the k-Nearest Neighbors (k=5) classifier built in Verilog and deployed on FPGA.
 
 This project explores how RTL pipeline depth influences DSP inference and timing closure during synthesis, while delivering deterministic sub-microsecond ML inference.
 
-**✨ Highlights** : 
+###  Highlights
 
 ⚡ Sub-microsecond inference (~0.86 µs)
 
@@ -18,7 +18,7 @@ This project explores how RTL pipeline depth influences DSP inference and timing
 
 🕒 Stable timing closure at 181.8 MHz
 
-**🧠 Key Insight** :
+### Key Insights
 
 Simply adding pipeline stages does NOT guarantee higher performance.
 
@@ -28,7 +28,7 @@ Correct RTL register placement around arithmetic operators is essential for:
 ✔ Better timing closure
 ✔ Improved FPGA resource efficiency
 
-**⚙️ Hardware Configuration**
+### ⚙️ Hardware Configuration
 
 | Feature         | Value              |
 | --------------- | ------------------ |
@@ -40,7 +40,7 @@ Correct RTL register placement around arithmetic operators is essential for:
 | Platform        | Xilinx Zynq-7000   |
 
 
-**🏗 Architecture & Datapath** : 
+### 🏗 Architecture & Datapath
 
 The classifier is built as a streaming RTL datapath that processes one training sample per clock cycle. Instead of complex control logic, the design relies on pipelined arithmetic to achieve deterministic and high-speed inference.
 
@@ -84,7 +84,7 @@ The predicted Iris class is produced:
 
 Total classification latency is approximately 0.86 µs on FPGA. 
 
-**📊 Results & Discussion** :
+### **📊 Results & Discussion** :
 
 The FPGA accelerator was evaluated across multiple RTL configurations to understand how pipeline depth and arithmetic mapping affect timing and latency.
 All implementations use the same k-NN algorithm (k = 5) and the 150-sample Iris dataset, ensuring a fair architectural comparison.
@@ -116,11 +116,13 @@ The Logic-5stage design shows that simply adding registers does not fix carry-ch
 
 The DSP-3stage design provides the best trade-off between pipeline depth and latency, making it the most efficient implementation.
 
-⚡ Hardware vs Software
-Platform	Latency
-CPU (NumPy)	~528 µs
-GPU (CuPy)	~33 µs
-FPGA	~0.86 µs
+### ⚡ Hardware vs Software Latency
+
+| Platform | Latency |
+|---------|--------|
+| CPU (NumPy) | ~528 µs |
+| GPU (CuPy) | ~33 µs |
+| FPGA | **~0.86 µs** |
 
 This demonstrates orders-of-magnitude lower latency for single-sample inference using FPGA hardware acceleration.
 
