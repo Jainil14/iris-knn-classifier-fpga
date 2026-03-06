@@ -1,65 +1,87 @@
-# iris-knn-classifier-fpga
-Hardware-Accelerated KNN Classifier on FPGA :
+🚀 FPGA k-Nearest Neighbors (k-NN) Accelerator
 
-An ultra-fast, 4-stage pipelined hardware implementation of the K-Nearest Neighbors (KNN) algorithm, architected to perform machine learning classifications at nanosecond speeds after achieving timing closure at 178.6 MHz.
+A high-performance RTL implementation of the k-Nearest Neighbors (k=5) classifier built in Verilog and deployed on FPGA.
 
-This project demonstrates the immense performance gains of hardware acceleration by implementing a KNN (k=5) classifier in Verilog for an Altera Cyclone II FPGA. It processes a custom fixed-point version of the Iris dataset and delivers classification results orders of magnitude faster than a traditional CPU-based software approach.
+This project explores how RTL pipeline depth influences DSP inference and timing closure during synthesis, while delivering deterministic sub-microsecond ML inference.
 
-👉 Key Features & Highlights
+✨ Highlights
 
-🚀 Nanosecond-Level Performance:    Achieves a full classification in just 884 nanoseconds, a speedup of over 1700x compared to software, by running on a stable 178.6 MHz clock.
+⚡ Sub-microsecond inference (~0.86 µs)
+🧠 Hardware ML classifier for the Iris dataset
+🧩 RTL microarchitecture study of pipeline depth
+🔧 Demonstrates DSP48 inference vs LUT arithmetic
+📉 ~50% LUT reduction using DSP mapping
+🕒 Stable timing closure at 181.8 MHz
 
-⚙️ 4-Stage Compute Pipeline:    A deep, synchronous pipeline streams the dataset through the compute engine, processing one data point every single clock cycle without stalls.
+🛠 Tools & Technologies
 
-⏱️ Verified Timing Closure:   Post-synthesis static timing analysis (STA) confirms the design is robust. The worst-path delay was measured at 5.4 ns, comfortably meeting the 5.6 ns (178.6 MHz) clock target with positive timing slack.
+💻 Language: Verilog HDL
+⚙️ FPGA: Xilinx Zynq-7000
+🧰 Toolchain: Vivado 2025.2
+📊 Reference Model: Python (NumPy)
 
-🧠 Custom Fixed-Point Data Representation:   The original floating-point Iris dataset was pre-processed by multiplying by 10, converting to a 16-bit integer format, and then representing it in hex for on-chip storage. This allows for purely integer-based hardware, dramatically simplifying the logic.
+🧠 Key Insight
 
-💡 Synthesis-Aware Design:   The Verilog is written to allow the synthesis tool to infer the use of dedicated DSP blocks for multiplication, resulting in a highly efficient and performant hardware implementation.
+Simply adding pipeline stages does NOT guarantee higher performance.
+
+Correct RTL register placement around arithmetic operators is essential for:
+
+✔ Reliable DSP inference
+✔ Better timing closure
+✔ Improved FPGA resource efficiency
+
+⚙️ Hardware Configuration
+
+| Feature         | Value              |
+| --------------- | ------------------ |
+| Dataset         | Iris (150 samples) |
+| Distance Metric | Squared Euclidean  |
+| k value         | 5                  |
+| Data Format     | Fixed-point        |
+| Pipeline Depth  | 3-stage / 5-stage  |
+| Platform        | Xilinx Zynq-7000   |
 
 
-👉 Hardware vs. Software Performance Metrics 📈
+🏗 Architecture & Datapath
 
-| Metric              | Hardware (This Project)               | Software (Python, Single Core)      |
-| :------------------ | :------------------------------------ | :---------------------------------- |
-| **Clock Frequency** | **178.6 MHz** (5.6 ns period)         | ~3.4 GHz (Typical modern CPU)       |
-| **Execution Model** | **Fully Pipelined** (1 point/cycle)   | **Sequential Loops** & OS Overhead  |
-| **Latency / Vector**| **884 nanoseconds** | **~1500 - 1600 microseconds** (1.5 - 1.6 ms) |
-| **Performance Gain**| **~1,700x - 1,800x Speedup** | Baseline                            |
+The classifier is built as a streaming RTL datapath that processes one training sample per clock cycle. Instead of complex control logic, the design relies on pipelined arithmetic to achieve deterministic and high-speed inference.
 
-👉 Architecture Deep Dive:
+🔹 Datapath Flow
 
-The system is architected as a single, all-in-one processor that continuously streams data through three sequential hardware blocks. This design ensures the entire KNN algorithm executes in a predictable and fixed number of clock cycles.
+1️⃣ Test Vector Input
 
-1. Data Pre-processing & On-Chip ROM :
+The query vector containing the four Iris features : sepal_length, sepal_width, petal_length, petal_width ; is loaded once and held constant during classification.
 
-   To prepare the data for hardware, the original floating-point Iris dataset was converted to a 16-bit fixed-point format. This was achieved by multiplying each      feature by 10 and rounding to the nearest integer. The entire 150-entry dataset was then stored on-chip in a synthesized LUT-based ROM using a 66-bit               {petal_width, petal_length, sepal_width, sepal_length, class_label} structure.
+2️⃣ Training ROM
 
-   This design provides single-cycle read access to each data point, which is critical for feeding the compute pipeline without any stalls.      It also explains the 0% BRAM usage, as the dataset lives directly in the FPGA's logic fabric.
+The 150 Iris training samples are stored in on-chip ROM.
 
-2. The 4-Stage Compute Pipeline (The Core Engine) :
-   
-   This is where the mathematical heavy lifting happens. The pipeline accepts one training data point from the ROM each clock cycle and calculates its squared         Euclidean distance from the input test_vector.
+Each clock cycle: training sample → distance pipeline ; which enables continuous streaming without memory stalls.
 
-   Stage 1 (Parallel Difference):
-   Fetches a 66-bit data point from ROM and calculates the signed difference (training_feature - test_feature) for all four features simultaneously.
+3️⃣ Distance Pipeline
 
-   Stage 2 (Parallel Squaring):
-   Calculates (difference)² for all four features. This is where the synthesis tool infers the use of the FPGA's dedicated DSP blocks (hardware multipliers).
+The pipeline computes the squared Euclidean distance between the test vector and each training sample.
 
-   Stage 3 (Adder Tree Summation):
-   Sums the four squared differences to produce the final squared Euclidean distance.
+distance =(sl_train − sl_test)² +(sw_train − sw_test)² +(pl_train − pl_test)² +(pw_train − pw_test)²
 
-   Stage 4 (Output Buffering):
-    Registers the final distance to cleanly hand off the value to the sorter module.
+Using a D-stage pipeline allows:
 
-3. High-Speed Insertion Sorter :
-   
-    As the pipeline outputs a new distance value every clock cycle, the sorter's job is to maintain a real-time, sorted list of the top 5 smallest distances found      so far.
+✔ one distance result every clock
+✔ higher clock frequency
+✔ efficient DSP usage
 
-   Implementation: A fully-unrolled, 5-register insertion sorter. It processes one new distance value every single clock cycle, ensuring no stalls or back-pressure    on the compute pipeline.
+4️⃣ Top-K Sorter
 
-4. Instantaneous Majority Voting :
-   
-    Once all 150 data points have been processed, a simple, combinatorial voting block resolves the final class in a single clock cycle, adding negligible latency.
+A hardware insertion sorter keeps track of the 5 smallest distances while the pipeline runs which continuously updates the nearest neighbors in real time.
 
+5️⃣ Majority Voting
+
+After all samples are processed, the class labels of the 5 nearest neighbors are evaluated and the most frequent class is selected.
+
+6️⃣ Final Output
+
+The predicted Iris class is produced:
+
+Setosa | Versicolor | Virginica
+
+Total classification latency is approximately 0.86 µs on FPGA.
