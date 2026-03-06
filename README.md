@@ -7,17 +7,25 @@ This project explores how RTL pipeline depth influences DSP inference and timing
 ✨ Highlights
 
 ⚡ Sub-microsecond inference (~0.86 µs)
+
 🧠 Hardware ML classifier for the Iris dataset
+
 🧩 RTL microarchitecture study of pipeline depth
+
 🔧 Demonstrates DSP48 inference vs LUT arithmetic
+
 📉 ~50% LUT reduction using DSP mapping
+
 🕒 Stable timing closure at 181.8 MHz
 
 🛠 Tools & Technologies
 
 💻 Language: Verilog HDL
+
 ⚙️ FPGA: Xilinx Zynq-7000
+
 🧰 Toolchain: Vivado 2025.2
+
 📊 Reference Model: Python (NumPy)
 
 🧠 Key Insight
@@ -50,19 +58,19 @@ The classifier is built as a streaming RTL datapath that processes one training 
 
 1️⃣ Test Vector Input
 
-The query vector containing the four Iris features : sepal_length, sepal_width, petal_length, petal_width ; is loaded once and held constant during classification.
+The query vector containing the four Iris features : **sepal_length, sepal_width, petal_length, petal_width** ; is loaded once and held constant during classification.
 
 2️⃣ Training ROM
 
 The 150 Iris training samples are stored in on-chip ROM.
 
-Each clock cycle: training sample → distance pipeline ; which enables continuous streaming without memory stalls.
+**Each clock cycle: training sample → distance pipeline** ; which enables continuous streaming without memory stalls.
 
 3️⃣ Distance Pipeline
 
 The pipeline computes the squared Euclidean distance between the test vector and each training sample.
 
-distance =(sl_train − sl_test)² +(sw_train − sw_test)² +(pl_train − pl_test)² +(pw_train − pw_test)²
+distance = **(sl_train − sl_test)² + (sw_train − sw_test)² + (pl_train − pl_test)² + (pw_train − pw_test)²**
 
 Using a D-stage pipeline allows:
 
@@ -82,6 +90,6 @@ After all samples are processed, the class labels of the 5 nearest neighbors are
 
 The predicted Iris class is produced:
 
-Setosa | Versicolor | Virginica
+**Setosa | Versicolor | Virginica**
 
 Total classification latency is approximately 0.86 µs on FPGA.
